@@ -1,11 +1,21 @@
-QUERY yang digunakan untuk membuat tabel analisa di google big query. Sebelum diupload ke big query, dataset diolah dahulu di Microsoft Excel untuk menghitung persentase gross laba, net sales, dan net profit.
+KINERJA BISNIS KIMIA FARMA TAHUN 2020 - 2023
 
-CREATE TABLE dataset_kimia_farma.kf_analisa AS
-SELECT ft.transaction_id, ft.date, ft.branch_id, kc.branch_name, kc.kota, kc.provinsi, kc.rating_cabang, ft.customer_name, ft.product_id, pr.product_name, pr.actual_price, ft.discount_percentage, ft.persentase_gross_laba,ft.net_sales, ft.net_profit, ft.rating
-FROM dataset_kimia_farma.kf_final_transaction as ft
-LEFT JOIN dataset_kimia_farma.kf_kantor_cabang as kc
-  on ft.branch_id = kc.branch_id
-LEFT JOIN dataset_kimia_farma.kf_product as pr
-  on ft.product_id = pr.product_id
-LEFT JOIN `dataset_kimia_farma.kf_inventory` as inv
-  on ft.branch_id = inv.branch_id
+TOOLS:
+- Google Big Query
+- Looker Studio
+- Microsoft Excel
+
+Data Preparation
+1. Download the datasets from final  task file
+2. Create the dataset in google big query
+3. Importing csv data into the dataset
+
+Data Mart
+1. Process the raw data to be a data mart
+2. Resource ID = pbi-kimiafarmabda-ernasari.dataset_pbi_kf.kf_analisa
+3. Link the analysis table = [dataset_pbi_kf.kf_analisa](https://console.cloud.google.com/bigquery?hl=en&project=pbi-kimiafarmabda-ernasari&ws=!1m15!1m4!1m3!1spbi-kimiafarmabda-ernasari!2sbquxjob_1a3598bc_18e0303956f!3sUS!1m4!4m3!1spbi-kimiafarmabda-ernasari!2sdataset_pbi_kf!3skf_product!1m4!4m3!1spbi-kimiafarmabda-ernasari!2sdataset_pbi_kf!3skf_analisa)https://console.cloud.google.com/bigquery?hl=en&project=pbi-kimiafarmabda-ernasari&ws=!1m15!1m4!1m3!1spbi-kimiafarmabda-ernasari!2sbquxjob_1a3598bc_18e0303956f!3sUS!1m4!4m3!1spbi-kimiafarmabda-ernasari!2sdataset_pbi_kf!3skf_product!1m4!4m3!1spbi-kimiafarmabda-ernasari!2sdataset_pbi_kf!3skf_analisa
+
+DASHBOARD
+
+
+Insight from the dashboard
